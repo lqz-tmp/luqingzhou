@@ -1,25 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
-int ml,k,tmp,j;
+int ml,k;
 string s;
-
+bool pd(int i,int j){
+	int tmp=0;
+	for (int k=i;k<=(i+j)/2;k++){
+		if (s[k]!=s[j-k+i]) tmp++;
+	}
+	 return (tmp<=k);
+}
 int main(){
 	cin>>s;  cin>>k;
-	for (int i=0;i<=s.length()-1;++i){
-		tmp=0;
-		for (j=0;i-j>=0&&i+j<=s.length()-1;++j){
-			if (s[i-j]!=s[i+j]) tmp++;
-			if (tmp==k) break;
+	for (int i=0;i<=s.length()-1;i++){
+		for (int j=i;j<=s.length()-1;j++){
+			if (pd(i,j)&&(j-i+1>ml)) ml=j-i+1;
 		}
-		ml=max(ml,2*j+1);
-	}
-	for (int i=0;i<=s.length()-2;++i){
-		tmp=0;
-		for (j=0;i-j>=0&&i+1+j<=s.length()-1;++j){
-			if (s[i-j]!=s[i+1+j]) tmp++;
-			if (tmp==k) break;
-		}
-		ml=max(ml,2*j+2);
 	}
 	cout<<ml;
 	return 0;

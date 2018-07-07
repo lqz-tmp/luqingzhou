@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>//D-1
+#include <bits/stdc++.h>
 using namespace std;
 int a[200],f[105][100005],ans,n,k;
 
