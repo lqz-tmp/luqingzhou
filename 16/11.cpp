@@ -27,7 +27,6 @@ int main(){
     		}
     		else l=mid+1;
     	}
-    	// if (a[ans]-a[i-1]>=t&&a[ans-1]-a[i-1]<t) ml=min(ml,ans-i+1);
     }
     cout<<ml;
     return 0;

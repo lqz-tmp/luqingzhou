@@ -1,50 +1,49 @@
-
-#include <stdio.h>
-
-#include <string.h>
-
-int num[100000];
-
-int main (){
-
-    int n,t,x;
-
-    while (scanf("%d%d%d",&n,&t,&x)!=EOF){
-
-        for (int i=0;i<n;i++){
-
-            scanf ("%d",&num[i]);
-
-        }
-
-        if (x>t){
-
-            printf ("-1\n");
-
-            continue;
-
-        }
-
-        int ans=x;
-
-        int time=num[0];
-
-        for (int i=0;i<n;i++){
-
-            while (time<num[i]){
-
-                time++;
-
-                ans++;
-
-            }
-
-        }   
-
-        printf ("%d\n",ans);
-
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int a[10005],af[10005];  //af：负数时刻  a：非负数时刻
+ 
+int main(){
+    int n,t,x,ti[10005],tmp,ans=0,j;
+    cin>>n>>t>>x;
+    for (int i=1;i<=n;++i){
+        scanf("%d",&ti[i]);
     }
-
+    if (t<x){
+        cout<<-1<<endl;
+        return 0;
+    }
+    for (int i=1;i<=n;++i){
+        tmp=0;
+        for (int j=ti[i]-t;j<=ti[i]-1;++j){
+            if (j>=0) {
+                if(a[j]==1){
+                    tmp++;
+                }
+            }else{
+                if(af[-j]==1){
+                    tmp++;
+                }
+            }
+        }
+        j=ti[i]-1;
+        while(tmp<x){
+            if (j>=0) {
+                if(a[j]!=1){
+                    a[j]=1;
+                    ans++;
+                    tmp++;
+                }
+            }else{
+                if(af[-j]!=1){
+                    af[-j]=1;
+                    ans++;
+                    tmp++;
+                }
+            }
+            j--;
+        }
+    }
+    cout<<ans<<endl;
     return 0;
-
-} 
+}
