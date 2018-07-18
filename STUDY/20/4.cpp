@@ -8,7 +8,7 @@ struct tree
 int n,m,f[2005];
 
 bool cmp(tree x,tree y){
-	return (x.b>y.b);
+	return (x.b<y.b);
 }
 
 int main() {
@@ -20,6 +20,10 @@ int main() {
 		scanf("%d",&t[i].b);
 	}
 	sort(t+1,t+n+1,cmp);
+	// for (int i = 0; i < n; ++i)
+	// {
+	// 	cout<<t[i+1].a<<' '<<t[i+1].b<<endl;
+	// }
 	for (int i=1;i<=n;++i){
 		for (int j=m;j>=1;--j){
 			f[j]=max(f[j],f[j-1]+t[i].a+t[i].b*(j-1));

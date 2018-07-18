@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int f[35][20005];
+int f[20005];
 
 int main() {
 	int v,n,a[35];
@@ -11,10 +11,10 @@ int main() {
 	}
 	for (int i=1;i<=n;++i){
 		for (int j=v;j>=a[i];--j){
-			f[i][j]=max(f[i-1][j],f[i-1][j-a[i]]+a[i]);
+			f[j]=max(f[j],f[j-a[i]]+a[i]);
 		}
 	}
-	int ans=f[n][v];
+	int ans=f[v];
 	ans=v-ans;
 	cout<<ans;
     return 0;

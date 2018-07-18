@@ -13,15 +13,15 @@ int main(){
 		f[0]=0;
 		for (int j=1;j<=w2-w1;j++) f[j]=2000000000;
 		for (int j=1;j<=n;++j){
-			// if ()
-			for (int k=w2-w1;k>=m[j];k--){
+			for (int k=m[j];k<=w2-w1;++k){
 				if (f[k-m[j]]!=2000000000){
-					f[k]=max(f[k],f[k-m[j]]+v[j]);
+					f[k]=min(f[k],f[k-m[j]]+v[j]);
 				}
 			}
 		}
-		if (f[n]!=2000000000) cout<<"The minimum amount of money in the piggy-bank is "<<f[n]<<'.'<<endl;
+		if (f[w2-w1]!=2000000000) cout<<"The minimum amount of money in the piggy-bank is "<<f[w2-w1]<<'.'<<endl;
 		else cout<<"This is impossible."<<endl;
 	}
+	// for (int i=1;i<=w2-w1;++i) cout<<f[i]<<endl;
     return 0;
 }
