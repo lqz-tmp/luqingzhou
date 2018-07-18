@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int a,b,x[200],y[200],ax=0,ay=0,cx=0,cy=0,cr=15,cc=1;
+
+void check(int i,int tmp,int &ax,int &ay){
+	if (tmp==0){
+		ay+=4;
+		return;
+	}
+	if (tmp==1){
+		if (i%2==1) ax++,cout<<'a';
+		else ay+=4,cout<<'b';
+		cr--;
+	}else if (cr<=0&&cx+cy!=29){
+		if (tmp==cc+1){
+			cout<<'c';
+			ax+=tmp;
+			cc++;
+		}else{
+			cout<<'d';
+			ay+=max(4,tmp);
+		}
+	}else {
+		if (i%2==0) ax+=tmp,cout<<'e';
+		else ay+=max(4,tmp),cout<<'f';
+	}
+	return;
+}
+
+int main() 
+{
+    //freopen("1.in", "r", stdin);
+    //freopen("1.out", "w", stdout);
+    cin>>a>>b;
+    for (int i=1;i<=a;++i) {
+    	scanf("%d",&x[i]);
+    }
+    for (int i=1;i<=b;++i) {
+    	scanf("%d",&y[i]);
+    }
+    for (int i=1;i<=a+b;++i){
+    	if (cx<a) {
+    		cx++;
+    		check(cx,x[cx],ax,ay);
+    	}
+    	if (cy<b) {
+    		cy++;
+    		check(cy,y[cy],ay,ax);
+    	}
+    }
+    cout<<ax<<' '<<ay;
+    return 0;
+}
