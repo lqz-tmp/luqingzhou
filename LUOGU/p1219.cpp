@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int n,cnt,f[15][15],a[40],m1[40],m2[40],m3[40],ans;
+int n,cnt,a[40],m1[40],m2[40],m3[40],ans;
 
 void bfs(int i){
 	if (i>n){
