@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <cstdio>
+#include <iostream>
+#include <cstring>
 using namespace std;
 
 int n,f[205][205],tmp[205][205],tans;
@@ -41,7 +43,6 @@ int main(){
 			}
 		}
 	}
-	cout<<n-f[1][n]<<endl;
 	print(1,n);
 	return 0;
 }
