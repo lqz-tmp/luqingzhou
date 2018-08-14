@@ -39,6 +39,9 @@ int main(){
 			cout<<i<<endl;
 			return 0;
 		} 
+		else {
+			printf("ERR:%d\n",i);
+		}
 	}
 	cout<<"OK";
 	return 0;

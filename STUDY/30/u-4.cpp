@@ -2,7 +2,7 @@
 using namespace std;
 struct node{
 	long long num,val;
-}tree[100005],a[100005],tmp,tmp2;
+}tree[150005],a[150005],tmp,tmp2;
 
 int cnt,size;
 
